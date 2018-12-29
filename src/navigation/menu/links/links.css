@@ -1,0 +1,70 @@
+.navghost-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navLink-container {
+  flex: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.navLink a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: white;
+  font-weight: 300;
+  font-size: 1em;
+  transition: color 0.3s, font-size 0.3s;
+  flex: 1;
+}
+
+.navLink {
+  flex: 1;
+  transition: background-position 0.3s;
+  text-align: left;
+  padding-left: 10px;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  border-radius: 50px 0px 0px 50px;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, black 50%, white 50%);
+}
+
+.navLink:hover {
+  font-size: 1.1em;
+  background-position: -100% 0%;
+}
+
+.navLink.active {
+  font-size: 1.1em;
+  background-position: -100% 0%;
+}
+
+.navLink.active a {
+  color: black;
+}
+
+.navLink:hover a {
+  color: black !important;
+}
+
+.ghost-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+.ghost-container div {
+  transition: transform 0.7s cubic-bezier(.36,-1.14,.52,1.84);
+}
+
+.ghost {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  color: white;
+}

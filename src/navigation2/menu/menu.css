@@ -1,0 +1,75 @@
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+}
+
+.outside-left, .outside-right {
+  flex: 1.5;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.navLink {
+  flex: 1;
+  text-align: center;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  color: #707070;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0px);
+  transition: transform 0.3s ease-out;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  transform: translateY(-5px);
+  animation: float 3s ease-in-out;
+  animation-delay: 0.3s;
+}
+
+.navLink::before {
+  content: '';
+  height: 7px;
+  position: absolute;
+  top: 100%;
+  left: 32%;
+  width: 36%;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.navLink:hover::before {
+  opacity: 1 !important;
+  transform: translateY(5px);
+}
+
+@media only screen and (max-width: 768px) {
+  .navContainer {
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 2;
+    margin-top: 0px;
+  }
+
+  .outside-left {
+    flex: 1.4 !important;
+  }
+
+  .outside-right {
+    flex: 1.4 !important;
+  }
+
+  .navLink {
+    font-size: 1.3em;
+  }
+}

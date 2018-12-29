@@ -1,0 +1,16 @@
+.barContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.bar {
+  flex: 1;
+  top: 50%;
+  position: relative;
+  background: #707070;
+  transition: height 0.3s ease-out;
+  box-shadow: 0px 0px 5px grey;
+}
