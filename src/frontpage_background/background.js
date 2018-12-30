@@ -13,6 +13,7 @@ import {
   PointLight,
   Clock
 } from 'three';
+import WebVRPolyfill from 'webvr-polyfill';
 
 class Background extends Component {
 
@@ -21,7 +22,8 @@ class Background extends Component {
     speed: 0.9,
     height: 1,
     x: 36 * 3,
-    y: 36 * 3
+    y: 36 * 3,
+    sensitivity: 0.25
   }
 
   constructor () {
@@ -43,12 +45,13 @@ class Background extends Component {
 
     this.clock = new Clock();
     this.scene = new Scene();
-    this.renderer = new WebGLRenderer({ antialias: true });
+    this.renderer = new WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize( window.innerWidth, h );
     this.renderer.setPixelRatio( window.devicePixelRatio );
+    //this.renderer.setClearColor( 0xffffff, 0 );
+    this.renderer.setClearColor('#707070');
     this.camera = new PerspectiveCamera( 75, window.innerWidth / h, 0.1, 1000 );
     this.camera.position.z = 30;
-    this.renderer.setClearColor(0x000000);
     this.light = new PointLight( 0xffffff, 1, 100, 2 );
     this.light.position.set( 0, 50, 0 );
     this.scene.add( this.light );
@@ -56,8 +59,54 @@ class Background extends Component {
 
     this.planeInterval = 0;
 
+    this.enableAccelerometer();
+
     this.generatePlanes();
     this.start();
+
+  }
+
+  enableAccelerometer () {
+    let config = (function() {
+      let config = {};
+      let q = window.location.search.substring(1);
+      if ( q === '' ) {
+        return config;
+      }
+      let params = q.split('&');
+      let param, name, value;
+      for (let i = 0; i < params.length;  i++) {
+        param = params[i].split('=');
+        name = param[0];
+        value = param[1];
+        config[name] = value === 'true' ? true :
+                       value === 'false' ? false :
+                       parseFloat(value);
+      }
+      return config;
+    })();
+
+    let polyfill = new WebVRPolyfill( config );
+
+    console.log('Using webvr-polyfill version ' + WebVRPolyfill.version + ' with configuration ' + JSON.stringify( config ));
+
+    this.frameData = new window.VRFrameData();
+
+    navigator.getVRDisplays().then(function( vrDisplays ) {
+
+      this.vrDisplay = vrDisplays[0];
+
+      if ( this.vrDisplay ) {
+
+        this.vrDisplay.getFrameData( this.frameData );
+
+      } else {
+
+        this.vrDisplay = false;
+
+      }
+
+    }.bind( this ));
 
   }
 
@@ -87,9 +136,7 @@ class Background extends Component {
 
       let x = ( i + 1 ) * this.props.planeSize;
       x -= this.props.planeSize / 2;
-      x -= ( this.props.planeSize * this.props.x ) / 2
-
-      console.log( x );
+      x -= ( this.props.planeSize * this.props.x ) / 2;
 
       planeGroup.position.set( x, this.props.planeSize/-2, 0 );
       this.planeMatrix.push( planeGroup );
@@ -141,6 +188,17 @@ class Background extends Component {
     this.frameId = window.requestAnimationFrame( this.animate );
     this.renderer.render( this.scene, this.camera );
     this.animatePlanes();
+    //this.cycleBackground();
+
+    if ( this.vrDisplay ) {
+
+      this.vrDisplay.getFrameData( this.frameData );
+      let orientation = this.frameData.pose.orientation;
+      this.camera.rotation.x = orientation[0] * this.props.sensitivity;
+      this.camera.rotation.y = orientation[1] * this.props.sensitivity;
+      this.camera.rotation.z = orientation[2] * this.props.sensitivity;
+
+    }
 
   }
 
@@ -161,7 +219,8 @@ class Background extends Component {
 
     return (
       <div
-        style={{ width: '100vw', height: '100vh', zIndex: -2, position: 'absolute', top: 0, overflow: 'hidden', ...this.props.style}}
+        className='frontpage_background'
+        style={{ width: '100vw', height: '100vh', zIndex: -2, overflow: 'hidden', ...this.props.style}}
         ref={(mount) => { this.mount = mount }}
       />
     );

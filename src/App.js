@@ -6,6 +6,9 @@ import { Provider } from 'react-redux';
 import NavMenu from './navigation2/menu/menu';
 import Ghost from './navigation2/ghost/ghost';
 import Background from './frontpage_background/background';
+import Space from './mobileSpace/space';
+import LogoHeader from './logos/header/header';
+import Title from './title/title';
 
 class App extends Component {
   render() {
@@ -13,10 +16,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App" align='center'>
-          <Background/>
-          <div style={{position: 'absolute', top: 0, width: '100vw', height: '45px'}}></div>
+          <Title/>
           <NavMenu/>
+          <Space/>
           <Ghost width='60'/>
+          <Background/>
+          <LogoHeader/>
+
 
         </div>
       </Provider>

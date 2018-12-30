@@ -67,7 +67,7 @@ class Ghost extends Component {
     this.bars = [];
 
     for( let i = 0; i < this.state.bars; i++ ) {
-      this.bars.push(<Bar height={this.state.barHeight[i]}/>)
+      this.bars.push(<Bar height={this.state.barHeight[i]} key={i}/>)
     }
 
     return(
