@@ -2,7 +2,7 @@
   width: 2vw;
   height: 2vw;
   position: relative;
-  transition: transform 0.5s cubic-bezier(.46,.06,.28,.99);
+  transition: transform 1s cubic-bezier(.46,.06,.28,.99);
   transform: translateX(0vw);
   margin-top: 10px;
   margin-left: 10px;
@@ -16,7 +16,7 @@
   margin-top: 5px;
   border-radius: 30px;
   display: block;
-  transition: all 0.5s cubic-bezier(.46,.06,.28,.99);
+  transition: all 1s cubic-bezier(.46,.06,.28,.99);
   transform: translateZ();
   position: relative;
   top: 0;
@@ -52,7 +52,7 @@
 .Burger.active > span:nth-child(1) {
   top: 50%;
   transform: rotate(45deg);
-  margin-top: 35px !important;
+  margin-top: 15px !important;
 }
 
 .Burger.active > span:nth-child(3) {

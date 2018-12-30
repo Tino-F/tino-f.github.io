@@ -44,8 +44,10 @@ class NavMenu extends Component {
     //navButtons.splice( Math.floor(this.state.navButtons.length/2), 0, <div className='centerLogo'><PlusLogo/></div> )
 
     return(
-        <div className='navContainer'>
-          <Burger/>
+        <div className={ this.props.menu ? 'navContainer active' : 'navContainer' }>
+          <div className='burger-container'>
+            <Burger/>
+          </div>
           <div className='outside-left'>
             <PlusLogo/>
           </div>

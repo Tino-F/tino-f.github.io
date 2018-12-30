@@ -13,7 +13,7 @@ class Ghost extends Component {
     super();
 
     this.state = {
-      bars: 100,
+      bars: 150,
       barHeight: []
     }
 

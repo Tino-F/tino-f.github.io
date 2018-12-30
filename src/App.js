@@ -9,17 +9,19 @@ import Background from './frontpage_background/background';
 
 class App extends Component {
   render() {
+
     return (
       <Provider store={store}>
         <div className="App" align='center'>
-          <NavMenu/>
-          <br/>
-          <Ghost width='60vw'/>
           <Background/>
+          <div style={{position: 'absolute', top: 0, width: '100vw', height: '45px'}}></div>
+          <NavMenu/>
+          <Ghost width='60'/>
 
         </div>
       </Provider>
     );
+
   }
 }
 

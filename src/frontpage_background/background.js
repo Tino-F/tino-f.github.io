@@ -18,8 +18,8 @@ class Background extends Component {
 
   static defaultProps = {
     planeSize: 1.2,
-    speed: 2,
-    height: 0.8,
+    speed: 0.9,
+    height: 1,
     x: 36 * 3,
     y: 36 * 3
   }
@@ -161,7 +161,7 @@ class Background extends Component {
 
     return (
       <div
-        style={{ width: '100vw', height: '75vh', zIndex: -2, position: 'absolute', overflow: 'hidden', ...this.props.style}}
+        style={{ width: '100vw', height: '100vh', zIndex: -2, position: 'absolute', top: 0, overflow: 'hidden', ...this.props.style}}
         ref={(mount) => { this.mount = mount }}
       />
     );

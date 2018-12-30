@@ -1,7 +1,8 @@
 .navContainer {
   display: flex;
   flex-direction: row;
-  margin-top: 15px;
+  padding-top: 15px;
+  background-color: white;
 }
 
 .outside-left, .outside-right {
@@ -59,6 +60,12 @@
     background: black;
     z-index: 2;
     margin-top: 0px;
+    transform: translateX(-100vw);
+    transition: transform 1s cubic-bezier(.46,.06,.28,.99);
+  }
+
+  .navContainer.active {
+    transform: translateX(0vw);
   }
 
   .outside-left {
@@ -71,5 +78,19 @@
 
   .navLink {
     font-size: 1.3em;
+  }
+
+  .burger-container {
+    position: absolute;
+    width: 100vw;
+    height: 45px;
+    text-align: left;
+    left: 0;
+    transition: transform 1s cubic-bezier(.46,.06,.28,.99);
+    transform: translateX(100vw);
+  }
+
+  .navContainer.active .burger-container {
+    transform: translateX(0vw);
   }
 }
