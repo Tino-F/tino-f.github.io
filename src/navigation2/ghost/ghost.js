@@ -71,7 +71,7 @@ class Ghost extends Component {
     }
 
     return(
-      <div align='center' style={{width: '100vw'}}>
+      <div align='center' id='ghost' style={{width: '100vw'}}>
         <div className='barContainer' style={{width: this.props.width}}>
           {this.bars}
         </div>

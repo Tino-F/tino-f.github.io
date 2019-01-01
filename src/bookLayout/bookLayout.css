@@ -1,0 +1,26 @@
+#bookLayout-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftSpace, .rightSpace {
+  flex: 0.2;
+}
+
+.page {
+  flex: 1;
+  padding: 10px;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fullpage {
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .leftSpace, .rightSpace {
+    flex: 0;
+    display: none;
+  }
+}

@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import './plus.css';
 
 export default class PlusLogo extends Component {
+
   render() {
+
     return(
-      <div align='center' className='plus-container'>
-
-        <div className='plusLogo'>+</div>
-
-        <div className='outerCircle' align='center'>
-          <div className='innerCircle'></div>
+      <div id='plus_logo'>
+        <div className='outer_border'>
+          <div className='orbital'></div>
         </div>
-
-        <div className='outerCircle2' align='center'>
-          <div className='innerCircle2'></div>
+        <div className='inner_border'></div>
+        <div className='barContainer'>
+          <div className='bar1'></div>
+          <div className='bar2'></div>
         </div>
-
       </div>
-    )
+    );
+
   }
+
 }

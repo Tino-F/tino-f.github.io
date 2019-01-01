@@ -14,6 +14,7 @@ import {
   Clock
 } from 'three';
 import WebVRPolyfill from 'webvr-polyfill';
+import Banner from './banner/banner';
 
 class Background extends Component {
 
@@ -222,7 +223,9 @@ class Background extends Component {
         className='frontpage_background'
         style={{ width: '100vw', height: '100vh', zIndex: -2, overflow: 'hidden', ...this.props.style}}
         ref={(mount) => { this.mount = mount }}
-      />
+      >
+      <Banner/>
+    </div>
     );
 
   }

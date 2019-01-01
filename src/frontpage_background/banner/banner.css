@@ -1,0 +1,62 @@
+#banner {
+  position: absolute;
+  background: #707070;
+  width: 100vw;
+  height: 5vh;
+  top: 50vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  animation-delay: 4s;
+  animation: bannerSlide 18s cubic-bezier(.46,.06,.28,.99);
+  transform: translateX(-100vw);
+}
+
+.banner_content {
+  color: white;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.7em;
+  animation-delay: 4s;
+  animation: bannerInnerSlide 18s cubic-bezier(.46,.06,.28,.99);
+}
+
+@keyframes bannerSlide {
+
+  0% {
+    transform: translateX(100vw);
+  }
+
+  5% {
+    transform: translateX(0vw);
+  }
+
+  95% {
+    transform: translateX(0vw);
+  }
+
+  100% {
+    transform: translateX(-100vw);
+  }
+
+}
+
+@keyframes bannerInnerSlide {
+
+  0% {
+    transform: translateX(-30vw);
+  }
+
+  5% {
+    transform: translateX(0vw);
+  }
+
+  95% {
+    transform: translateX(0vw);
+  }
+
+  100% {
+    transform: translateX(30vw);
+  }
+
+}

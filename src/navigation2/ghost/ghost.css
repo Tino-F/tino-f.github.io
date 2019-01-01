@@ -1,4 +1,4 @@
-.barContainer {
+#ghost .barContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -8,7 +8,7 @@
   padding-top: 10px;
 }
 
-.bar {
+#ghost .bar {
   flex: 1;
   top: 50%;
   position: relative;

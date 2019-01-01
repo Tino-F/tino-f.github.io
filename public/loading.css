@@ -5,10 +5,17 @@
   width: 100vw;
   height: 100vh;
   top: 0px;
+  left: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  transform: translateY(0vh);
+  transition: transform 1s cubic-bezier(.46,.06,.28,.99);
+}
+
+div#loadingScreen.away {
+  transform: translateY(-110vh);
 }
 
 #loading {
