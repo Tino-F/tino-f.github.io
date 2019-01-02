@@ -78,26 +78,86 @@ export class Project extends Component {
   render() {
     return(
       <div id='project' align='center'>
+
         <div className='projectInner'>
+
           <h1>{this.props.title}</h1>
-          <img alt={this.props.title} src={this.props.src}/>
-          <br/>
-          {this.props.children}
+
+          <div className='projectContent'>
+
+            <a href={this.props.url} className='imageLink' alt={this.props.title}>
+              <div className='rotatingImage'>
+                <img alt={this.props.title} src={this.props.src}/>
+              </div>
+              <div className='shadow'></div>
+            </a>
+
+          </div>
+
+          <div className='childrenContent'>
+            {this.props.children}
+          </div>
+
         </div>
+
       </div>
     );
   }
 
 }
 
-export class Listener {
+export class Listener extends Component {
 
-  start() {
+  static defaultProps = {
+    sensitivity: 10
+  }
+
+  constructor() {
+    super();
+
+    this.handleMouseMove = this.handleMouseMove.bind( this );
+  }
+
+  handleMouseMove( e ) {
+
+    let x = e.clientX;
+    let y = e.clientY;
+
+    let xDif = ( e.clientX / window.innerWidth ) - 0.5;
+    let yDif = ( e.clientY / window.innerHeight ) - 0.5;
+
+    let shadowSize = 78 - ( 28 * ( Math.abs( xDif ) * 2 ) ) ;
+    /*
+    let rotateX = `rotateX( ${ ( Math.floor( yDif * 1000 ) / 1000 ) * this.props.sensitivity }deg )`;
+    let rotateY = `rotateY( ${ ( Math.floor( xDif * 1000 ) / 1000 ) * this.props.sensitivity }deg )`;
+    let transform = `${rotateX}, ${rotateY}`;
+    */
+    let transform = `rotate3D( ${yDif}, ${-xDif}, 0, 54deg )`
+    
+    this.imgEls.forEach( img => {
+      img.style.transform = transform;
+    })
+
+    this.shadows.forEach( shadow => {
+      shadow.style.width = `${shadowSize}%`
+    })
 
   }
 
-  stop() {
+  componentDidMount() {
+
+    this.carousel = document.getElementById('carousel');
+    this.imgEls = document.querySelectorAll('.projectContent .imageLink .rotatingImage');
+    this.shadows = document.querySelectorAll('#carousel #project .imageLink .shadow');
+
+    this.carousel.addEventListener('mousemove', this.handleMouseMove);
 
   }
+
+  componentWillUnmount() {
+    this.carousel.removeEventListener('mousemove', this.handleMouseMove);
+  }
+
+  render() { return null; }
 
 }
