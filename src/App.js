@@ -8,11 +8,13 @@ import Ghost from './navigation2/ghost/ghost';
 import Background from './frontpage_background/background';
 import Space from './mobileSpace/space';
 import LogoHeader from './logos/header/header';
+import FooterLogo from './logos/footer/footerLogo';
 import Title from './title/title';
 import Footer from './footer/footer';
 import { Book, Page } from './bookLayout/BookLayout';
 import PlusLogo from './logos/plus/plus';
 import MinusLogo from './logos/minus/minus';
+import Center from './center/center';
 
 class App extends Component {
 
@@ -33,16 +35,31 @@ class App extends Component {
           <Ghost width='60'/>
           <Background/>
           <LogoHeader/>
+
           <Book>
             <Page>
               <MinusLogo/>
-              <p>'this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test '</p>
             </Page>
             <Page>
               <PlusLogo/>
-              <p>'this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test '</p>
             </Page>
           </Book>
+
+          <Center>
+            Hope you like my website!!! :D
+          </Center>
+
+          <Book>
+            <Page>
+              <PlusLogo/>
+            </Page>
+            <Page>
+              <MinusLogo/>
+            </Page>
+          </Book>
+
+          <FooterLogo/>
+          <br/>
           <br/>
           <br/>
           <Footer/>

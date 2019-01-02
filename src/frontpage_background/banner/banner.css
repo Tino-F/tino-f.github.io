@@ -7,8 +7,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  animation-delay: 4s;
-  animation: bannerSlide 18s cubic-bezier(.46,.06,.28,.99);
+  animation: bannerSlide 18s cubic-bezier(.46,.06,.28,.99) 2s;
   transform: translateX(-100vw);
 }
 
@@ -17,8 +16,7 @@
   font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 1.7em;
-  animation-delay: 4s;
-  animation: bannerInnerSlide 18s cubic-bezier(.46,.06,.28,.99);
+  animation: bannerInnerSlide 18s cubic-bezier(.46,.06,.28,.99) 2s;
 }
 
 @keyframes bannerSlide {

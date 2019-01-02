@@ -1,6 +1,7 @@
 #bookLayout-container {
   display: flex;
   flex-direction: row;
+  font-size: 1.15em;
 }
 
 .leftSpace, .rightSpace {
