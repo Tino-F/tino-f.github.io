@@ -3,12 +3,6 @@ import './minus.css';
 
 export default class MinusLogo extends Component {
 
-  constructor () {
-
-    super();
-
-  }
-
   render() {
 
     return(

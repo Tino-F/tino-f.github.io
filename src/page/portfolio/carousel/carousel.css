@@ -1,0 +1,25 @@
+#carousel {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#carousel .inner {
+  display: flex;
+  flex-direction: row;
+  transition: transform 1s cubic-bezier(.46,.06,.28,.99);
+}
+
+#carousel #project {
+  flex: 1;
+}
+
+#carousel .leftArrow {
+  position: absolute;
+  left: 0;
+}
+
+#carousel .rightArrow {
+  position: absolute;
+  right: 0;
+}

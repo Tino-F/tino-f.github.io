@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <BrowserRouter>
     <Route path='/' component={App}></Route>
-  </BrowserRouter>, 
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

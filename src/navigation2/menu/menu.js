@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PlusLogo from '../../logos/plus/plus';
 import MinusLogo from '../../logos/minus/minus';
 import toggleMenu from '../../actions/toggleMenu';
@@ -26,18 +27,22 @@ class NavMenu extends Component {
   }
 
   handleClick( index, e ) {
+
+    this.props.toggleMenu( false );
+
     this.setState({
       currentPage: index
     });
+
   }
 
   render() {
 
     let navButtons = this.state.navButtons.map( ( {title, url}, index ) => {
       return (
-        <a to={url} className={ this.state.currentPage === index ? 'navLink active' : 'navLink'} href={'#' + url} onClick={function() {this.handleClick(index)}.bind( this )} key={url}>
+        <Link to={url} className={ this.state.currentPage === index ? 'navLink active' : 'navLink'} onClick={function() {this.handleClick(index)}.bind( this )} key={url}>
           {title}
-        </a>
+        </Link>
       );
     });
 

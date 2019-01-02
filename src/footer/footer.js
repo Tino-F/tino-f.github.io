@@ -47,7 +47,7 @@ class Footer extends Component {
 
     let links = this.links.map( ( { img, url, title } ) => {
       return(
-        <a href={url} target='_blank' key={title}>
+        <a href={url} target='_blank' rel="noopener noreferrer" key={title}>
           <img alt={title} src={img}/>
         </a>
       )

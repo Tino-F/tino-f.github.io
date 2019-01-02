@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './footerLogo.css';
 
-class FooterLogo extends Component {
-
-  constructor() {
-    super();
-  }
+export default class FooterLogo extends Component {
 
   render() {
 
@@ -22,15 +17,3 @@ class FooterLogo extends Component {
   }
 
 }
-
-const mapStateToProps = store => {
-  return {
-    menu: store.menu
-  };
-}
-
-const mapDispatchToProps = dispatch => {
-  return {}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FooterLogo);
