@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './portfolio.css';
 import Stars from '../../decoration/stars/stars';
-import LogoHeader from '../../logos/header/header';
-import FooterLogo from '../../logos/footer/footerLogo';
-import PlusLogo from '../../logos/plus/plus';
-import MinusLogo from '../../logos/minus/minus';
-import Center from '../../center/center';
-import Background from '../../frontpage_background/background';
-import { Book, Page } from '../../bookLayout/BookLayout';
+//import LogoHeader from '../../logos/header/header';
+//import FooterLogo from '../../logos/footer/footerLogo';
+//import PlusLogo from '../../logos/plus/plus';
+//import MinusLogo from '../../logos/minus/minus';
+//import Center from '../../center/center';
+//import { Book, Page } from '../../bookLayout/BookLayout';
 import {
   Carousel,
   Project
@@ -26,17 +25,43 @@ class Portfolio extends Component {
   render() {
 
     return(
-      <Carousel index={this.props.match.params.id} routerUrl='/portfolio/'>
-        <Project>
-          Ayy lmaooooo
-        </Project>
-        <Project>
-          Skeet skeet lol
-        </Project>
-        <Project>
-          Wtf is going on?
-        </Project>
-      </Carousel>
+      <div>
+
+        <br/>
+
+        <Stars/>
+
+        <br/>
+
+        <Carousel index={this.props.match.params.id} routerUrl='/portfolio/'>
+
+          <Project title='Aframe Fractal Component' src={require('./imgs/fractal1.gif')}>
+            This is my experimental fractal library
+          </Project>
+
+          <Project title="Gray's on main" src={require('./imgs/grays1.png')}>
+            Website for gray's in Franklin, TN.
+          </Project>
+
+          <Project title="O'be Joyful" src={require('./imgs/obj1.png')}>
+            Website for O'be Joyful in Franklin, TN.
+          </Project>
+
+          <Project title="TesseraWorks" src={require('./imgs/tesseraworks1.png')}>
+            TesseraWorks.
+          </Project>
+
+        </Carousel>
+
+        <br/>
+
+        <Stars/>
+
+        <br/>
+        <br/>
+        <br/>
+
+      </div>
     );
 
   }

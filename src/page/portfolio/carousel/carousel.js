@@ -22,12 +22,14 @@ export class Carousel extends Component {
   componentDidMount() {
 
     this.innerEl = document.querySelector('#carousel .inner');
-    console.log(this.innerEl.children.length);
+
     this.setState({
       numOfItems: this.innerEl.children.length
     }, function () {
+
       //stretch out the sliding element so that each project will fit without overlapping
       this.innerEl.style.width = ( this.state.numOfItems * 100 ) + '%';
+
     });
 
   }
@@ -44,24 +46,24 @@ export class Carousel extends Component {
 
 
     return(
-      <div id='carousel'>
-
-        <div className='inner' style={{transform: `translateX(${-100/this.state.numOfItems * this.props.index}%)`}}>
-
-          {this.props.children}
-
-        </div>
+      <div id='carousel' style={{...this.props.style}}>
 
         <div className='leftArrow'>
           <Link to={leftURL}>
-            Left
+            <img alt='left' src={require('./imgs/chevron-left.png')}/>
           </Link>
         </div>
 
         <div className='rightArrow'>
           <Link to={rightURL}>
-            Right
+            <img alt='right' src={require('./imgs/chevron-right.png')}/>
           </Link>
+        </div>
+
+        <div className='inner' style={{transform: `translateX(${-100/this.state.numOfItems * this.props.index}%)`}}>
+
+          {this.props.children}
+
         </div>
 
       </div>
@@ -76,7 +78,12 @@ export class Project extends Component {
   render() {
     return(
       <div id='project' align='center'>
-        {this.props.children}
+        <div className='projectInner'>
+          <h1>{this.props.title}</h1>
+          <img alt={this.props.title} src={this.props.src}/>
+          <br/>
+          {this.props.children}
+        </div>
       </div>
     );
   }
