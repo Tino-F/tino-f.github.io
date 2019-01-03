@@ -50,7 +50,7 @@ a {
   height: 50%;
   z-index: 2;
   position: absolute;
-  top: 25%;
+  margin-top: 15%;
 }
 
 #carousel .leftArrow img, #carousel .rightArrow img {
