@@ -132,8 +132,8 @@ export class Listener extends Component {
     let rotateY = `rotateY( ${ ( Math.floor( xDif * 1000 ) / 1000 ) * this.props.sensitivity }deg )`;
     let transform = `${rotateX}, ${rotateY}`;
     */
-    let transform = `rotate3D( ${yDif}, ${-xDif}, 0, 54deg )`
-    
+    let transform = `rotate3D( ${-yDif}, ${xDif}, 0, ${ ( Math.abs(xDif) + Math.abs(yDif) ) * 50 }deg )`
+
     this.imgEls.forEach( img => {
       img.style.transform = transform;
     })

@@ -81,6 +81,8 @@ a {
   transform-style: preserve-3d;
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-perspective: 1000px;
+  -webkit-perspective-origin: 50% 0;
 }
 
 #carousel #project .shadow {
@@ -111,6 +113,7 @@ a {
 .projectContent .imageLink {
   flex: 4;
   padding: 10%;
+  perspective: 80em;
 }
 
 .projectContent .stack {
