@@ -126,7 +126,9 @@ export class Listener extends Component {
     let xDif = ( e.clientX / window.innerWidth ) - 0.5;
     let yDif = ( e.clientY / window.innerHeight ) - 0.5;
 
-    let shadowSize = 78 - ( 28 * ( Math.abs( xDif ) * 2 ) ) ;
+    let shadowWidth = 85 - ( 28 * ( Math.abs( xDif ) * 2 ) ) ;
+    let shadowHeight =  5 + ( 15 * Math.abs( yDif / 0.5 ) )
+
     /*
     let rotateX = `rotateX( ${ ( Math.floor( yDif * 1000 ) / 1000 ) * this.props.sensitivity }deg )`;
     let rotateY = `rotateY( ${ ( Math.floor( xDif * 1000 ) / 1000 ) * this.props.sensitivity }deg )`;
@@ -139,7 +141,8 @@ export class Listener extends Component {
     })
 
     this.shadows.forEach( shadow => {
-      shadow.style.width = `${shadowSize}%`
+      shadow.style.width = `${shadowWidth}%`;
+      shadow.style.height = `${shadowHeight}px`
     })
 
   }

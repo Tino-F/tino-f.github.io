@@ -8,6 +8,7 @@ a {
 
 #carousel {
   width: 100%;
+  min-height: 80vh;
 }
 
 #carousel .inner {
