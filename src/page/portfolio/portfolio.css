@@ -11,6 +11,7 @@
   padding-bottom: 40px;
   box-shadow: 0px 1px 10px #101010;
   transition: flex-grow 0.5s ease-in-out;
+  transform: translateZ(0);
 }
 
 #portfolioBody .left:hover, #portfolioBody .right:hover {
@@ -26,7 +27,7 @@
   text-decoration: none;
 }
 
-.profilePic {
+#portfolioBody .profilePic {
   margin-top: 36px;
   width: 10vw;
   height: 10vw;
@@ -37,4 +38,31 @@
 
 #portfolioBody .right .btn {
   background-color: #707070 !important;
+}
+
+@media only screen and (max-width: 768px) {
+
+  #portfolioBody {
+    flex-direction: column;
+    margin-bottom: 35px;
+  }
+
+  #portfolioBody .left:hover, #portfolioBody .right:hover {
+    flex-grow: 1;
+  }
+
+  #portfolioBody h1 {
+    font-size: 1.4em;
+  }
+
+  #portfolioBody .profilePic {
+    margin-top: 20px;
+    width: 20vw;
+    height: 20vw;
+  }
+
+  #portfolioBody .left, #portfolioBody .right {
+    padding-bottom: 10px;
+  }
+
 }
