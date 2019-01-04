@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {
-  Route
-} from "react-router-dom";
+  Route,
+  Switch
+} from 'react-router-dom';
+import {
+  TransitionGroup,
+  CSSTransition
+} from 'react-transition-group'
 import './main.css';
 import store from './store'
 import { Provider } from 'react-redux';
@@ -31,9 +36,23 @@ class App extends Component {
           <NavMenu/>
           <Ghost width='60'/>
 
-          <Route exact path='/' component={Home}/>
-          <Route path='/portfolio/:id?' component={Portfolio}/>
-          <Route path='/about' component={About}/>
+          <Route render={({ location }) => (
+            <TransitionGroup>
+
+              <CSSTransition key={location.key} classNames='fade' timeout={800}>
+
+                <Switch location={location}>
+
+                  <Route exact path='/' component={Home}/>
+                  <Route path='/portfolio/:id?' component={Portfolio}/>
+                  <Route path='/about' component={About}/>
+
+                </Switch>
+
+              </CSSTransition>
+
+            </TransitionGroup>
+          )}/>
 
           <Footer/>
         </div>
