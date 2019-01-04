@@ -1,0 +1,40 @@
+#portfolioBody {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+}
+
+#portfolioBody .left, #portfolioBody .right {
+  flex-grow: 1;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 40px;
+  box-shadow: 0px 1px 10px #101010;
+  transition: flex-grow 0.5s ease-in-out;
+}
+
+#portfolioBody .left:hover, #portfolioBody .right:hover {
+  flex-grow: 2;
+}
+
+#portfolioBody .right {
+  background: #707070;
+  color: white;
+}
+
+#portfolioBody a {
+  text-decoration: none;
+}
+
+.profilePic {
+  margin-top: 36px;
+  width: 10vw;
+  height: 10vw;
+  background-position: center;
+  background-size: 100%;
+  border-radius: 15vw;
+}
+
+#portfolioBody .right .btn {
+  background-color: #707070 !important;
+}

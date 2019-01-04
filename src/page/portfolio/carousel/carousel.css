@@ -97,6 +97,14 @@ a {
   margin-top: 7%;
 }
 
+#sectionHeading {
+  flex: 1;
+  -webkit-font-smoothing: antialiased;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-size: 3em;
+  animation: sectionHover 10s ease-in-out infinite;
+}
+
 @keyframes hover {
   0% {
     top: 0px;
@@ -106,6 +114,24 @@ a {
   }
   100% {
     top: 0px;
+  }
+}
+
+@keyframes sectionHover {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-75px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(10deg);
+  }
+  75% {
+    transform: translateY(-75px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
 }
 
@@ -160,6 +186,10 @@ a {
 
   .childrenContent {
     font-size: 0.8em;
+  }
+
+  #sectionHeading {
+    font-size: 2em;
   }
 
 }

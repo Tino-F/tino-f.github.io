@@ -146,7 +146,19 @@ export class Carousel extends Component {
 
 }
 
-export class Project extends Component {
+export class SectionHeading extends Component {
+
+  render() {
+    return(
+      <div id='sectionHeading'>
+        {this.props.children}
+      </div>
+    );
+  }
+
+}
+
+export class ImageProject extends Component {
 
   render() {
     return(
@@ -171,6 +183,34 @@ export class Project extends Component {
 
           <div className='childrenContent'>
             {this.props.children}
+          </div>
+
+        </div>
+
+      </div>
+    );
+  }
+
+}
+
+export class Project extends Component {
+
+  render() {
+    return(
+      <div id='project' align='center'>
+
+        <div className='projectInner'>
+
+          <h1>{this.props.title}</h1>
+
+          <div className='projectContent'>
+
+            <div className='regularProject'>
+
+              { this.props.children }
+
+            </div>
+
           </div>
 
         </div>
