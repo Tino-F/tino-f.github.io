@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './carousel.css';
 import ParticleBackground from './particleBackground/particleBackground';
+import WebVRPolyfill from 'webvr-polyfill';
 
 export class Carousel extends Component {
 
@@ -189,6 +190,98 @@ export class Listener extends Component {
     super();
 
     this.handleMouseMove = this.handleMouseMove.bind( this );
+    this.enableAccelerometer = this.enableAccelerometer.bind( this );
+    this.animateAccelerometer = this.animateAccelerometer.bind( this );
+    this.start = this.start.bind( this );
+    this.stop = this.stop.bind( this );
+  }
+
+  enableAccelerometer ( cb ) {
+    let config = (function() {
+      let config = {};
+      let q = window.location.search.substring(1);
+      if ( q === '' ) {
+        return config;
+      }
+      let params = q.split('&');
+      let param, name, value;
+      for (let i = 0; i < params.length;  i++) {
+        param = params[i].split('=');
+        name = param[0];
+        value = param[1];
+        config[name] = value === 'true' ? true :
+                       value === 'false' ? false :
+                       parseFloat(value);
+      }
+      return config;
+    })();
+
+    let polyfill = new WebVRPolyfill( config );
+
+    console.log('Using webvr-polyfill version ' + WebVRPolyfill.version + ' with configuration ' + JSON.stringify( config ));
+
+    this.frameData = new window.VRFrameData();
+
+    navigator.getVRDisplays().then(function( vrDisplays ) {
+
+      this.vrDisplay = vrDisplays[0];
+
+      if ( this.vrDisplay ) {
+
+        this.vrDisplay.getFrameData( this.frameData );
+
+      } else {
+
+        this.vrDisplay = false;
+
+      }
+
+      cb();
+
+    }.bind( this ));
+
+  }
+
+  start() {
+
+    this.enableAccelerometer(function () {
+
+      if ( this.vrDisplay ) {
+
+        if ( !this.frameId ) {
+          this.frameId = requestAnimationFrame( this.animateAccelerometer );
+        }
+
+      }
+
+    }.bind( this ));
+
+  }
+
+  stop() {
+
+    if ( this.frameId ) {
+
+      cancelAnimationFrame( this.frameId );
+    }
+
+  }
+
+  animateAccelerometer() {
+
+    this.frameId = window.requestAnimationFrame( this.animateAccelerometer );
+
+    this.vrDisplay.getFrameData( this.frameData );
+    let orientation = this.frameData.pose.orientation;
+
+    //console.log( orientation );
+
+    let transform = `rotate3D( ${(orientation[0]) * 5}, ${-orientation[1] * 5}, 0, ${ ( Math.abs(orientation[0]) + Math.abs(orientation[1]) ) * 50 }deg )`;
+
+    this.imgEls.forEach( img => {
+      img.style.transform = transform;
+    })
+
   }
 
   handleMouseMove( e ) {
@@ -225,11 +318,13 @@ export class Listener extends Component {
     this.shadows = document.querySelectorAll('#carousel #project .imageLink .shadow');
 
     this.carousel.addEventListener('mousemove', this.handleMouseMove);
+    this.start();
 
   }
 
   componentWillUnmount() {
     this.carousel.removeEventListener('mousemove', this.handleMouseMove);
+    this.stop();
   }
 
   render() { return null; }
