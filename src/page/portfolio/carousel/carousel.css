@@ -158,4 +158,8 @@ a {
     min-height: 100vh;
   }
 
+  .childrenContent {
+    font-size: 0.8em;
+  }
+
 }
