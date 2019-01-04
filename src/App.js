@@ -11,6 +11,7 @@ import Title from './title/title';
 import Footer from './footer/footer';
 import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
+import About from './page/about/about';
 
 class App extends Component {
 
@@ -32,6 +33,7 @@ class App extends Component {
 
           <Route exact path='/' component={Home}/>
           <Route path='/portfolio/:id?' component={Portfolio}/>
+          <Route path='/about' component={About}/>
 
           <Footer/>
         </div>

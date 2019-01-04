@@ -1,0 +1,11 @@
+.aboutPage {
+  display: flex;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #707070;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+
+}
