@@ -40,12 +40,13 @@ export class Carousel extends Component {
     this.touchendY = e.changedTouches[0].screenY;
 
     //console.log(`Start: ${this.touchstartX}, End: ${this.touchendX}`);
+    //console.log( this.touchstartX - this.touchendX );
 
-    if (this.touchendX <= this.touchstartX) {
+    if (this.touchendX + 55 <= this.touchstartX) {
       this.slideRight();
     }
 
-    if (this.touchendX >= this.touchstartX) {
+    if (this.touchendX - 55 >= this.touchstartX) {
         this.slideLeft();
     }
   }
