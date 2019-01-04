@@ -27,19 +27,17 @@ a {
 }
 
 #carousel #project h1 {
-  font-weight: 400;
+  font-weight: 500;
   border-bottom: 3px dashed #707070;
   padding: 20px;
-  width: 45%;
+  width: 95%;
 }
 
 #carousel .leftArrow {
-  position: absolute;
   left: 0;
 }
 
 #carousel .rightArrow {
-  position: absolute;
   right: 0;
 }
 
@@ -87,12 +85,16 @@ a {
 }
 
 #carousel #project .shadow {
-  margin-top: 7%;
   height: 20px;
   width: 78%;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   opacity: 1;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.shadowContainer {
+  height: 25px;
+  margin-top: 7%;
 }
 
 @keyframes hover {
@@ -125,4 +127,35 @@ a {
   border-bottom: 3px solid #707070;
   width: 60%;
   padding-bottom: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+
+  #carousel #project h1 {
+    font-size: 1.1em;
+    width: 85%;
+  }
+
+  #carousel {
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  #carousel .rightArrow, #carousel .leftArrow {
+    display: none;
+  }
+
+  #carousel #project .projectInner {
+    width: 80%;
+  }
+
+  .projectContent .imageLink {
+    padding: 5%;
+  }
+
+  #carousel .inner {
+    min-height: 100vh;
+  }
+
 }

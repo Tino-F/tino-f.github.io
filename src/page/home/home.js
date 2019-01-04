@@ -1,6 +1,7 @@
 import './home.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Space from '../../mobileSpace/space';
 import Stars from '../../decoration/stars/stars';
 import LogoHeader from '../../logos/header/header';
 import FooterLogo from '../../logos/footer/footerLogo';
@@ -15,6 +16,7 @@ class Home extends Component {
   render() {
     return(
       <div>
+        <Space/>
         <Background/>
         <Stars/>
         <LogoHeader/>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './carousel.css';
+import ParticleBackground from './particleBackground/particleBackground';
 
 export class Carousel extends Component {
 
@@ -14,14 +15,73 @@ export class Carousel extends Component {
     super();
 
     this.state = {
-      numOfItems: 0
+      numOfItems: 0,
+      redirect: false
     }
+
+    this.touchstartX = 0;
+    this.touchendX = 0;
+    this.handleTouchStart = this.handleTouchStart.bind( this );
+    this.handleTouchEnd = this.handleTouchEnd.bind( this );
+    this.slideLeft = this.slideLeft.bind( this );
+    this.slideRight = this.slideRight.bind( this );
+
+  }
+
+  handleTouchStart( e ) {
+    this.touchstartX = e.changedTouches[0].screenX;
+    this.touchstartY = e.changedTouches[0].screenY;
+  }
+
+  handleTouchEnd( e ) {
+
+    this.touchendX = e.changedTouches[0].screenX;
+    this.touchendY = e.changedTouches[0].screenY;
+
+    //console.log(`Start: ${this.touchstartX}, End: ${this.touchendX}`);
+
+    if (this.touchendX <= this.touchstartX) {
+      this.slideRight();
+    }
+
+    if (this.touchendX >= this.touchstartX) {
+        this.slideLeft();
+    }
+  }
+
+  slideLeft() {
+
+    let index = parseInt(this.props.index);
+
+    let leftURL = ( index - 1 ) < 0 ? this.state.numOfItems - 1 : index - 1;
+    leftURL = this.props.routerUrl + leftURL;
+
+    this.setState({
+      redirect: <Redirect push to={leftURL}/>
+    })
+
+  }
+
+  slideRight() {
+
+    let index = parseInt(this.props.index);
+
+    let rightURL = ( index + 1 ) > this.state.numOfItems - 1 ? 0 : index + 1;
+    rightURL = this.props.routerUrl + rightURL;
+
+    this.setState({
+      redirect: <Redirect push to={rightURL}/>
+    })
 
   }
 
   componentDidMount() {
 
     this.innerEl = document.querySelector('#carousel .inner');
+    this.carouselEl = document.getElementById('#carousel');
+
+    document.addEventListener('touchstart', this.handleTouchStart);
+    document.addEventListener('touchend', this.handleTouchEnd);
 
     this.setState({
       numOfItems: this.innerEl.children.length
@@ -32,6 +92,11 @@ export class Carousel extends Component {
 
     });
 
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('touchstart', this.handleTouchStart);
+    document.removeEventListener('touchend', this.handleTouchEnd);
   }
 
   render() {
@@ -66,6 +131,12 @@ export class Carousel extends Component {
 
         </div>
 
+        <ParticleBackground style={{position: 'absolute', top: 0}}/>
+
+        { this.state.redirect ? (
+          this.state.redirect
+        ) : null }
+
       </div>
     )
 
@@ -85,11 +156,13 @@ export class Project extends Component {
 
           <div className='projectContent'>
 
-            <a href={this.props.url} className='imageLink' alt={this.props.title}>
+            <a href={this.props.url} className='imageLink' target='_blank' rel='noopener noreferrer' alt={this.props.title}>
               <div className='rotatingImage'>
                 <img alt={this.props.title} src={this.props.src}/>
               </div>
-              <div className='shadow'></div>
+              <div className='shadowContainer'>
+                <div className='shadow' />
+              </div>
             </a>
 
           </div>
@@ -120,9 +193,6 @@ export class Listener extends Component {
 
   handleMouseMove( e ) {
 
-    let x = e.clientX;
-    let y = e.clientY;
-
     let xDif = ( e.clientX / window.innerWidth ) - 0.5;
     let yDif = ( e.clientY / window.innerHeight ) - 0.5;
 
@@ -134,6 +204,7 @@ export class Listener extends Component {
     let rotateY = `rotateY( ${ ( Math.floor( xDif * 1000 ) / 1000 ) * this.props.sensitivity }deg )`;
     let transform = `${rotateX}, ${rotateY}`;
     */
+
     let transform = `rotate3D( ${-yDif}, ${xDif}, 0, ${ ( Math.abs(xDif) + Math.abs(yDif) ) * 50 }deg )`
 
     this.imgEls.forEach( img => {

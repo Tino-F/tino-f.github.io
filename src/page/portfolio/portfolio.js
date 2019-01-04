@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './portfolio.css';
-import Stars from '../../decoration/stars/stars';
+//import Stars from '../../decoration/stars/stars';
 //import LogoHeader from '../../logos/header/header';
 //import FooterLogo from '../../logos/footer/footerLogo';
 //import PlusLogo from '../../logos/plus/plus';
@@ -75,7 +75,7 @@ class Portfolio extends Component {
           </Project>
 
           <Project title="O'be Joyful" url='http://objfranklin.com' src={require('./imgs/obj1.png')}>
-            This is a custom <a href='https://wordpress.org' target='_blank'>Wordpress</a> theme built for O'be Joyful in Franklin, TN.
+            This is a custom <a href='https://wordpress.org' target='_blank'  rel="noopener noreferrer">Wordpress</a> theme built for O'be Joyful in Franklin, TN.
           </Project>
 
           <Project title="TesseraWorks" url='http://tessera.works' src={require('./imgs/tesseraworks1.png')}>

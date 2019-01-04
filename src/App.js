@@ -5,10 +5,8 @@ import {
 import './main.css';
 import store from './store'
 import { Provider } from 'react-redux';
-//import Burger from './navigation/burger/burger';
 import NavMenu from './navigation2/menu/menu';
 import Ghost from './navigation2/ghost/ghost';
-import Space from './mobileSpace/space';
 import Title from './title/title';
 import Footer from './footer/footer';
 import Home from './page/home/home';
@@ -30,7 +28,6 @@ class App extends Component {
         <div className="App" align='center'>
           <Title/>
           <NavMenu/>
-          <Space/>
           <Ghost width='60'/>
 
           <Route exact path='/' component={Home}/>
