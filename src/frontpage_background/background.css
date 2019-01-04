@@ -4,11 +4,13 @@
   transform: translateY(-13vh);
   overflow-x: hidden !important;
   display: block;
+  /*
   background: linear-gradient(225deg, #23f0bb, #a623f0, #d0f023, #f09a23, #f05223);
   background-size: 1000% 1000%;
   -webkit-animation: AnimationName 43s ease infinite;
   -moz-animation: AnimationName 43s ease infinite;
   animation: AnimationName 43s ease infinite;
+  */
 }
 
 @-webkit-keyframes AnimationName {
@@ -33,6 +35,8 @@
     position: absolute;
     transform: translateY(0vh);
     top: 0;
+    font-size: 0.7em;
+    font-weight: 300;
   }
 
 }

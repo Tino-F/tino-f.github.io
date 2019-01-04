@@ -23,6 +23,10 @@
   color: white;
 }
 
+#portfolioBody .left {
+  color: #707070;
+}
+
 #portfolioBody a {
   text-decoration: none;
 }
@@ -45,10 +49,6 @@
   #portfolioBody {
     flex-direction: column;
     margin-bottom: 35px;
-  }
-
-  #portfolioBody .left:hover, #portfolioBody .right:hover {
-    flex-grow: 1;
   }
 
   #portfolioBody h1 {

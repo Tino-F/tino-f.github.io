@@ -41,7 +41,7 @@ export default class ParticleBackground extends Component {
 
     }
 
-    var starsMaterial = new PointsMaterial( { color: 0x808080 } );
+    var starsMaterial = new PointsMaterial( { color: 0x808080, size: 2 } );
 
     var starField = new Points( starsGeometry, starsMaterial );
 
@@ -57,7 +57,7 @@ export default class ParticleBackground extends Component {
     this.renderer.setPixelRatio( window.devicePixelRatio );
     this.renderer.setClearColor(0xffffff);
     this.camera = new PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-    this.camera.position.z = 300;
+    this.camera.position.z = 1000;
 
     this.mount.appendChild(this.renderer.domElement);
 
