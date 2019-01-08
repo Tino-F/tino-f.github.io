@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './about.css';
+import Hover from './hover/hover';
 
 /*
 
@@ -20,9 +21,45 @@ class About extends Component {
     return(
       <div className='aboutPage'>
 
-        <h1 style={{flex: 1}}>
-          Working on it ;D
-        </h1>
+        <br/>
+        <br/>
+        <br/>
+        
+
+        <Hover style={{width: '100%'}}>
+
+          <img src={require('./imgs/questionMark.svg')} width='15%'/>
+
+        </Hover>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
       </div>
     );

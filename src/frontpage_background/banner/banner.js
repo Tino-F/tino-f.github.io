@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Banner extends Component {
 
   static defaultProps = {
-    text: 'Breaking the traditional'
+    text: 'Breaking the traditional.'
   }
 
   render() {

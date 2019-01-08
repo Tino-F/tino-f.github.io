@@ -9,6 +9,7 @@
   display: flex;
   animation: bannerSlide 18s cubic-bezier(.46,.06,.28,.99) 1s;
   transform: translateX(-100vw);
+  font-weight: 300;
 }
 
 .banner_content {
