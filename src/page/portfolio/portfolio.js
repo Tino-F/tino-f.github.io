@@ -10,6 +10,10 @@ import {
 
 class Portfolio extends Component {
 
+  componentDidMount() {
+    document.title = "Tino Fileccia | Portfolio";
+  }
+
   render() {
 
     return(

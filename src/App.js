@@ -17,6 +17,7 @@ import Footer from './footer/footer';
 import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
 import About from './page/about/about';
+import JustLogData from './JustLogData/JustLogData';
 
 const portfolioRegEx = new RegExp('/portfolio(.*)');
 
@@ -40,7 +41,12 @@ class App extends Component {
 
           <Route render={({ location }) => (
             <TransitionGroup>
-              <CSSTransition key={ location.key } classNames='slide' timeout={800}>
+
+              <JustLogData data={ location.key }/>
+              <JustLogData data={ location } type='raw'/>
+              <JustLogData data={ location.pathname }/>
+
+              <CSSTransition key={ portfolioRegEx.exec(location.pathname) ? ( portfolioRegEx.exec(location.pathname)[0] ? '' : location.key ) : location.key } classNames='slide' timeout={800}>
                 <Switch location={location}>
 
                   <Route exact path='/' component={Home}/>

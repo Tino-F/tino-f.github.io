@@ -14,6 +14,10 @@ import { Book, Page } from '../../bookLayout/BookLayout';
 
 class Home extends Component {
 
+  componentDidMount() {
+    document.title = "Tino Fileccia";
+  }
+
   render() {
     return(
       <div>
