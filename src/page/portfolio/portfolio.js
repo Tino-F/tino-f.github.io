@@ -10,46 +10,6 @@ import {
 
 class Portfolio extends Component {
 
-  constructor() {
-
-    super();
-
-    this.state= {
-      projects: [
-        {
-          title: 'Aframe Fractal Component',
-          img: require('./imgs/fractal1.gif'),
-          url: 'https://www.npmjs.com/package/aframe-fractal-component',
-          github: 'https://github.com/Tino-F/aframe-fractal-component',
-          tech: [
-            'es6 javascript',
-            'Three.JS'
-          ],
-        },
-        {
-          title: "Gray's on main",
-          img: require('./imgs/grays1.png'),
-          url: 'https://graysonmain.com'
-        },
-        {
-          title: "O'be Joyful",
-          img: require('./imgs/obj1.png'),
-          url: 'http://objfranklin.com'
-        },
-        {
-          title: 'TesseraWorks',
-          img: require('./imgs/tesseraworks1.png'),
-          url: 'https://tessera.works'
-        }
-      ]
-    };
-
-  }
-
-  componentDidMount() {
-
-  }
-
   render() {
 
     return(

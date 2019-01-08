@@ -10,7 +10,7 @@ canvas {
     height: 100%;
 }
 
-.fade-enter {
+.slide-enter {
   opacity: 0;
   z-index: 1;
   transition: transform 700ms cubic-bezier(.46,.06,.28,.99), opacity 700ms cubic-bezier(.46,.06,.28,.99);
@@ -20,7 +20,7 @@ canvas {
   overflow-x: hidden;
 }
 
-.fade-enter.fade-enter-active {
+.slide-enter.slide-enter-active {
   opacity: 1;
   transition: transform 700ms cubic-bezier(.46,.06,.28,.99), opacity 700ms cubic-bezier(.46,.06,.28,.99);
   transform: translateX(0vw);
@@ -29,6 +29,6 @@ canvas {
   overflow-x: hidden;
 }
 
-.fade-enter #carousel .leftArrow, .fade-enter #carousel .rightArrow {
+.slide-enter #carousel .leftArrow, .slide-enter #carousel .rightArrow {
   margin-top: 7%;
 }

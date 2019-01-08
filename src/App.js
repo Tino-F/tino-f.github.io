@@ -6,7 +6,7 @@ import {
 import {
   TransitionGroup,
   CSSTransition
-} from 'react-transition-group'
+} from 'react-transition-group';
 import './main.css';
 import store from './store'
 import { Provider } from 'react-redux';
@@ -17,6 +17,8 @@ import Footer from './footer/footer';
 import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
 import About from './page/about/about';
+
+const portfolioRegEx = new RegExp('/portfolio(.*)');
 
 class App extends Component {
 
@@ -38,9 +40,7 @@ class App extends Component {
 
           <Route render={({ location }) => (
             <TransitionGroup>
-
-              <CSSTransition key={location.key} classNames='fade' timeout={800}>
-
+              <CSSTransition key={ location.key } classNames='slide' timeout={800}>
                 <Switch location={location}>
 
                   <Route exact path='/' component={Home}/>
@@ -48,9 +48,7 @@ class App extends Component {
                   <Route path='/about' component={About}/>
 
                 </Switch>
-
               </CSSTransition>
-
             </TransitionGroup>
           )}/>
 
