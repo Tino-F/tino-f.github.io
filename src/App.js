@@ -17,7 +17,6 @@ import Footer from './footer/footer';
 import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
 import About from './page/about/about';
-import JustLogData from './JustLogData/JustLogData';
 
 const portfolioRegEx = new RegExp('/portfolio(.*)');
 

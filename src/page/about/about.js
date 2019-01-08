@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './about.css';
 
+/*
+
+  About page content:
+    * Title (My name)
+
+    * Who I am
+    * What I specialize in
+    * Goals
+
+*/
+
 class About extends Component {
 
   render() {
@@ -12,8 +23,6 @@ class About extends Component {
         <h1 style={{flex: 1}}>
           Working on it ;D
         </h1>
-
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
       </div>
     );
