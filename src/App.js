@@ -41,11 +41,6 @@ class App extends Component {
 
           <Route render={({ location }) => (
             <TransitionGroup>
-
-              <JustLogData data={ location.key }/>
-              <JustLogData data={ location } type='raw'/>
-              <JustLogData data={ location.pathname }/>
-
               <CSSTransition key={ portfolioRegEx.exec(location.pathname) ? ( portfolioRegEx.exec(location.pathname)[0] ? '' : location.key ) : location.key } classNames='slide' timeout={800}>
                 <Switch location={location}>
 
