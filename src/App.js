@@ -17,6 +17,7 @@ import Footer from './footer/footer';
 import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
 import About from './page/about/about';
+import Contact from './page/contact/contact'
 
 const portfolioRegEx = new RegExp('/portfolio(.*)');
 
@@ -46,6 +47,7 @@ class App extends Component {
                   <Route exact path='/' component={Home}/>
                   <Route path='/portfolio/:id?' component={Portfolio}/>
                   <Route path='/about' component={About}/>
+                  <Route path='/contact' component={Contact}/>
 
                 </Switch>
               </CSSTransition>
