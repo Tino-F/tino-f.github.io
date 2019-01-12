@@ -18,6 +18,7 @@ import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
 import About from './page/about/about';
 import Contact from './page/contact/contact'
+import NotFound from './page/404/NotFound';
 
 const portfolioRegEx = new RegExp('/portfolio(.*)');
 
@@ -48,6 +49,7 @@ class App extends Component {
                   <Route path='/portfolio/:id?' component={Portfolio}/>
                   <Route path='/about' component={About}/>
                   <Route path='/contact' component={Contact}/>
+                  <Route component={NotFound}/>
 
                 </Switch>
               </CSSTransition>

@@ -190,11 +190,6 @@
     font-size: 0.75em;
   }
 
-  .contactContainer {
-    height: 270vh;
-    transition: transform 0.5s cubic-bezier(.46,.06,.28,.99);
-  }
-
   .sending .contactContainer {
     transform: translateY(-90vh);
   }
