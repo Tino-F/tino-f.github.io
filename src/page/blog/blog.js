@@ -7,7 +7,7 @@ export default class Blog extends Component {
 
     return(
       <div className='blogPage'>
-        No Posts
+        No Posts Yet
       </div>
     );
 
