@@ -18,6 +18,7 @@ import Home from './page/home/home';
 import Portfolio from './page/portfolio/portfolio';
 import About from './page/about/about';
 import Contact from './page/contact/contact'
+import Blog from './page/blog/blog';
 import NotFound from './page/404/NotFound';
 
 class App extends Component {
@@ -84,6 +85,7 @@ class App extends Component {
                   <Route exact path='/' component={Home}/>
                   <Route path='/portfolio/:id?' component={Portfolio}/>
                   <Route path='/about' component={About}/>
+                  <Route path='/blog' component={Blog}/>
                   <Route path='/contact' component={Contact}/>
                   <Route component={NotFound}/>
 
