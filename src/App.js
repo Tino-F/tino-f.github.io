@@ -20,14 +20,50 @@ import About from './page/about/about';
 import Contact from './page/contact/contact'
 import NotFound from './page/404/NotFound';
 
-const portfolioRegEx = new RegExp('/portfolio(.*)');
-
 class App extends Component {
+
+  constructor() {
+    super();
+
+    this.omittedLocations = ['/portfolio', '/about'];
+
+    this.omitLocations = this.omitLocations.bind( this );
+  }
 
   componentDidMount() {
 
     //Remove loading screen
     document.getElementById('loadingScreen').classList.add('away');
+
+  }
+
+  omitLocations( location ) {
+
+    let key = 'randomtext';
+
+    this.omittedLocations.forEach( url => {
+
+      let urlRegex = new RegExp( url + '(.*)' );
+
+      if ( key !== '' ) {
+
+        let result = urlRegex.exec( location.pathname );
+
+        if ( result ) {
+          if ( result[0] ) {
+            key = '';
+          } else {
+            key = location.key;
+          }
+        } else {
+          key = location.key;
+        }
+
+      }
+
+    });
+
+    return key;
 
   }
 
@@ -42,7 +78,7 @@ class App extends Component {
 
           <Route render={({ location }) => (
             <TransitionGroup>
-              <CSSTransition key={ portfolioRegEx.exec(location.pathname) ? ( portfolioRegEx.exec(location.pathname)[0] ? '' : location.key ) : location.key } classNames='slide' timeout={800}>
+              <CSSTransition key={ this.omitLocations( location ) } classNames='slide' timeout={800}>
                 <Switch location={location}>
 
                   <Route exact path='/' component={Home}/>

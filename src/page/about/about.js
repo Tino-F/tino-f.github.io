@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './about.css';
-import Hover from './hover/hover';
+//import Hover from './hover/hover';
+import GlitchEffect from 'react-glitch-effect';
 
 /*
 
@@ -21,45 +22,11 @@ class About extends Component {
     return(
       <div className='aboutPage'>
 
-        <br/>
-        <br/>
-        <br/>
-        
+        <div className='aboutHeader'>
 
-        <Hover style={{width: '100%'}}>
+          <h1>ABOUT <GlitchEffect style={{display: 'inherit'}}>ME</GlitchEffect></h1>
 
-          <img src={require('./imgs/questionMark.svg')} width='15%'/>
-
-        </Hover>
-
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        </div>
 
       </div>
     );
