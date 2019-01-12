@@ -140,7 +140,7 @@ export default class Contact extends Component {
 
               <div className='contactSpace'></div>
 
-              <div style={{display: 'flex'}}>
+              <div style={{display: 'flex', width: '100%'}}>
                 <input type='text' name='firstName' placeholder='First Name' onChange={this.handleInputChange} required/>
                 <div style={{flex: 0.1}}></div>
                 <input type='text' name='lastName' placeholder='Last Name' onChange={this.handleInputChange} required/>
