@@ -1,0 +1,44 @@
+.sendingLogo {
+  display: flex;
+}
+
+.sending_bar {
+  width: 102px;
+  background: #707070;
+  border-radius: 10px;
+  height: 3px;
+  display: block;
+  animation: barAnimation 3s linear infinite;
+  transform: translateZ(0);
+  justify-content: center;
+  align-items: center;
+}
+
+.sending_bar:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.sending_bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.sending_bar:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.sending_bar:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.sending_bar:nth-child(6) {
+  animation-delay: 1.25s;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .sending_bar {
+    width: 72px;
+    animation: mobileBarAnimation 3s linear infinite;
+  }
+
+}

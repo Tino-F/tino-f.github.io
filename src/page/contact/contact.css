@@ -2,7 +2,7 @@
   height: 90vh;
   background: white;
   overflow-y: hidden;
-  background: #707070;
+  background: #4d4d4d;
 }
 
 .contactPage h1 {
@@ -31,12 +31,12 @@
 .contactContainer {
   display: flex;
   flex-direction: column;
-  height: 270vh;
-  translate: transformY(0vh);
-  transition: transform 0.3s cubic-bezier(.46,.06,.28,.99);
+  height: 360vh;
+  transform: translateY(0vh);
+  transition: transform 0.35s cubic-bezier(.46,.06,.28,.99);
 }
 
-.contactForm, .sendingPage, .sentPage {
+.contactForm, .sendingPage, .sentPage, .errorPage {
   flex: 1;
 }
 
@@ -46,6 +46,10 @@
 
 .sent .contactContainer {
   transform: translateY(-180vh);
+}
+
+.failed .contactContainer {
+  transform: translateY(-270vh);
 }
 
 .contactContainer .contactForm {
@@ -58,7 +62,7 @@
 .contactContainer .contactForm input[type='email'] {
   flex: 1;
   height: 4vh;
-  background: #707070;
+  background: #4d4d4d;
   border: 0;
   border-bottom: 6px solid white;
   color: white;
@@ -76,7 +80,7 @@
 .contactContainer .contactForm textarea {
   flex: 1;
   height: 200px;
-  background: #707070;
+  background: #4d4d4d;
   border: 0;
   border-bottom: 6px solid white;
   color: white;
@@ -106,9 +110,76 @@
 }
 
 .contactContainer .contactForm input[type='submit']:hover {
-  background: #707070;
+  background: #4d4d4d;
   border: 1px solid white;
   color: white;
+}
+
+.errorMessage {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #ff8080;
+  color: black;
+  font-weight: 600;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  padding: 3px;
+  transition: transform 0.8s cubic-bezier(.46,.06,.28,.99);
+  transform: translateX(-120vw);
+}
+
+.errorMessage.active {
+  transform: translateX(0vw);
+}
+
+.sendingPage, .sentPage, .errorPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sendingPage {
+  background: #ffff80;
+}
+
+.sendingText {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #707070;
+  font-size: 1.8em;
+  animation: fade 2s ease-in infinite;
+  position: absolute;
+  margin-top: 114px;
+}
+
+.sentPage {
+  background: #4dff4d;
+  color: #707070;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.3em;
+}
+
+.errorPage {
+  background: #ff8080;
+  color: #707070;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.3em;
+  font-weight: 500;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 768px) {
