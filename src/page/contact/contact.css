@@ -1,16 +1,20 @@
 .contactPage {
-  min-height: 75vh;
+  height: 90vh;
   background: white;
-  display: flex;
-  flex-direction: column;
+  overflow-y: hidden;
+  background: #707070;
 }
 
 .contactPage h1 {
-  color: #707070;
+  color: white;
   font-family: sans-serif;
   font-weight: 300;
   flex: 1;
-  margin-top: 40px;
+  margin-top: 7vh;
+}
+
+.contactSpace {
+  height: 7vh;
 }
 
 .contactPage .shadow {
@@ -24,11 +28,112 @@
   margin-top: 14px;
 }
 
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  height: 270vh;
+  translate: transformY(0vh);
+  transition: transform 0.3s cubic-bezier(.46,.06,.28,.99);
+}
+
+.contactForm, .sendingPage, .sentPage {
+  flex: 1;
+}
+
+.sending .contactContainer {
+  transform: translateY(-90vh);
+}
+
+.sent .contactContainer {
+  transform: translateY(-180vh);
+}
+
+.contactContainer .contactForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactContainer .contactForm input[name='firstName'],
+.contactContainer .contactForm input[name='lastName'],
+.contactContainer .contactForm input[type='email'] {
+  flex: 1;
+  height: 4vh;
+  background: #707070;
+  border: 0;
+  border-bottom: 6px solid white;
+  color: white;
+  font-size: 1.35em;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.contactContainer .contactForm input[name='firstName']::placeholder,
+.contactContainer .contactForm input[name='lastName']::placeholder,
+.contactContainer .contactForm input[type='email']::placeholder {
+  color: #AFACAC;
+}
+
+.contactContainer .contactForm textarea {
+  flex: 1;
+  height: 200px;
+  background: #707070;
+  border: 0;
+  border-bottom: 6px solid white;
+  color: white;
+  font-size: 1.35em;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.contactContainer .contactForm textarea::placeholder {
+  color: #AFACAC;
+}
+
+.contactContainer .contactForm input[type='submit'] {
+  background: white;
+  flex: 1;
+  width: 30%;
+  height: 51px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  color: #707070;
+  border-radius: 36px;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s, border 0.3s;
+}
+
+.contactContainer .contactForm input[type='submit']:hover {
+  background: #707070;
+  border: 1px solid white;
+  color: white;
+}
+
 @media only screen and (max-width: 768px) {
 
   .contactPage {
     margin-top: 50px;
-    height: 85vh;
+    height: 90vh;
+    font-size: 0.75em;
+  }
+
+  .contactContainer {
+    height: 270vh;
+    transition: transform 0.5s cubic-bezier(.46,.06,.28,.99);
+  }
+
+  .sending .contactContainer {
+    transform: translateY(-90vh);
+  }
+
+  .sent .contactContainer {
+    transform: translateY(-180vh);
+  }
+
+  .outerBoxes {
+    flex: 0.1 !important;
   }
 
 }
