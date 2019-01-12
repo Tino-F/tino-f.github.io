@@ -28,4 +28,10 @@
   .title {
     font-size: 0.4em;
   }
+
+  .titleContainer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
 }

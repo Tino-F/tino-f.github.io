@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Sending from './sending/sending';
+import GlitchEffect from 'react-glitch-effect';
 import './contact.css';
 
 export default class Contact extends Component {
@@ -133,7 +134,7 @@ export default class Contact extends Component {
 
             <div style={{flex: 3}} className='formInner'>
 
-              <h1>CONTACT ME</h1>
+              <h1 style={{display: 'inline-block'}}>CONTACT <GlitchEffect style={{display: 'inherit'}}>ME</GlitchEffect></h1>
 
               <div className={ this.state.errorMessage ? 'errorMessage active' : 'errorMessage'}> {this.state.errorMessage ? this.state.errorMessage : '.'} </div>
 

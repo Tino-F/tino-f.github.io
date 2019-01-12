@@ -25,7 +25,7 @@ class App extends Component {
   constructor() {
     super();
 
-    this.omittedLocations = ['/portfolio', '/about'];
+    this.omittedLocations = ['/portfolio'];
 
     this.omitLocations = this.omitLocations.bind( this );
   }
