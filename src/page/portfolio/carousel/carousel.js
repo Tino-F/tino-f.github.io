@@ -230,6 +230,12 @@ export class Listener extends Component {
   constructor() {
     super();
 
+    this.originalOrientation = {
+      x: 0,
+      y: 0,
+      z: 0
+    };
+
     this.handleMouseMove = this.handleMouseMove.bind( this );
     this.enableAccelerometer = this.enableAccelerometer.bind( this );
     this.animateAccelerometer = this.animateAccelerometer.bind( this );
@@ -270,6 +276,10 @@ export class Listener extends Component {
       if ( this.vrDisplay ) {
 
         this.vrDisplay.getFrameData( this.frameData );
+        let orientation = this.frameData.pose.orientation;
+        this.originalOrientation.x = orientation[0];
+        this.originalOrientation.y = orientation[1];
+        this.originalOrientation.z = orientation[2];
 
       } else {
 
@@ -317,7 +327,7 @@ export class Listener extends Component {
 
     //console.log( orientation );
 
-    let transform = `rotate3D( ${(orientation[0]) * 5}, ${-orientation[1] * 5}, 0, ${ ( Math.abs(orientation[0]) + Math.abs(orientation[1]) ) * 50 }deg )`;
+    let transform = `rotate3D( ${(( orientation[0] - this.originalOrientation.x ) ) * 5}, ${this.originalOrientation.y + -orientation[1] * 5}, 0, ${ ( Math.abs(orientation[0]) + Math.abs(orientation[1]) ) * 50 }deg )`;
 
     this.imgEls.forEach( img => {
       img.style.transform = transform;
