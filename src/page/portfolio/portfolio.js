@@ -23,6 +23,10 @@ class Portfolio extends Component {
 
         <Carousel index={this.props.match.params.id} routerUrl='/portfolio/'>
 
+          <ImageProject title='Gyroscopic Background Images' url='https://www.npmjs.com/package/gyrobackground' github='https://github.com/Tino-F/gyroBackground' src={require('./imgs/gyro-demo.gif')}>
+            This is a JavaScript library that uses <a href='https://threejs.org' target='_blank' rel='noopener noreferrer'>Three.JS</a> alongside the <a href='https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API' target='_blank' rel='noopener noreferrer'>WebVR</a> API to make it easy for you to create background images that move when your phone moves. It also includes a parallax option for non-supported devices.
+          </ImageProject>
+
           <ImageProject title='Aframe Fractal Component' url='https://www.npmjs.com/package/aframe-fractal-component' github='https://github.com/Tino-F/aframe-fractal-component' src={require('./imgs/fractal1.gif')}>
             This is an Aframe module/component built by me. The technologies used include <a href='https://aframe.io/' target='_blank' rel='noopener noreferrer'>AFrame</a>, <a href='https://threejs.org' target='_blank' rel='noopener noreferrer'>ThreeJS</a>, and <a href='http://es6-features.org' target='_blank' rel='noopener noreferrer'>ES6 Javascript</a>. It allows users to plot 3D/VR graphs in space, but it has a cool twist. It is audio responsive. You can specify your "fractal" to listen on whatever audio target you choose. This allows for the creation of quick and stunning visuals. What you are looking at above is my demonstration of an audio responsive <a href='https://en.wikipedia.org/wiki/Lorenz_system' rel='noopener noreferrer' target='_blank'>Lorenz Attractor</a>.
           </ImageProject>

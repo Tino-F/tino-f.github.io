@@ -189,6 +189,10 @@
     font-size: 0.75em;
   }
 
+  .contactSpace {
+    height: 5vh;
+  }
+
   .sending .contactContainer {
     transform: translateY(-90vh);
   }
@@ -205,6 +209,10 @@
   .contactContainer .contactForm input[name='lastName'],
   .contactContainer .contactForm input[type='email'] {
     width: 10vw;
+  }
+
+  .contactContainer .contactForm textarea {
+    height: 160px;
   }
 
 }
