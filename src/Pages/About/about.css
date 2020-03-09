@@ -1,0 +1,68 @@
+.aboutPage {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #707070;
+  width: 100vw;
+  min-height: 90vh;
+  background: white;
+}
+
+.aboutHeader {
+  width: 100vw;
+  color: black;
+  font-size: 1.2em;
+  display: inline-block;
+  height: 10%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.aboutHeader h1 {
+  margin-bottom: 0;
+  margin-top: 9px;
+}
+
+.aboutHeader p {
+  margin-top: 9px;
+  font-size: 0.75em;
+  font-weight: 100;
+}
+
+.aboutPage .paragraph {
+  display: flex;
+  padding-top: 9vh;
+  text-align: left;
+  font-size: 1.2em;
+  color: black;
+  font-weight: 400;
+}
+
+.aboutPage .paragraph .outerBoxes {
+  flex: 1;
+}
+
+.aboutPage .paragraph .inner {
+  flex: 3;
+}
+
+.aboutPage .paragraph .inner .signature {
+  margin-top: 15vh;
+  font-size: 1.4em;
+  margin-right: 45px;
+  text-align: right;
+  font-family: mvboli, sans-serif;
+}
+
+.aboutHeader h1 {
+  font-weight: 400;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .aboutPage {
+    margin-top: 11vh;
+    font-size: 0.8em;
+  }
+
+}

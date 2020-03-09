@@ -1,0 +1,70 @@
+.burger {
+  min-width: 35px;
+  min-height: 35px;
+  width: 3vw;
+  height: 3vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+}
+
+.burger-fixed {
+  position: fixed;
+  z-index: 1000;
+}
+
+.burger span {
+  width: 100%;
+  height: 10%;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
+  background: black;
+  border-radius: 25px;
+  transition: all 0.7s cubic-bezier(.01,.4,.39,.97);
+}
+
+.burger:hover:not(.active) span:nth-child(1) {
+  margin-left: -35%;
+}
+
+.burger:hover:not(.active) span:nth-child(2) {
+  margin-left: 35%;
+}
+
+.burger:hover:not(.active) span:nth-child(3) {
+  margin-left: -35%;
+}
+
+/* Active styling */
+
+.active span {
+  background: #707070;
+}
+
+.active span:nth-child(1) {
+  opacity: 0;
+}
+
+.active span:nth-child(2) {
+  transform: rotate(45deg);
+  margin-right: 15%;
+}
+
+.active span:nth-child(3) {
+  transform-origin: 0px;
+  transform: rotate(-45deg);
+  margin-left: 15%;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .burger {
+    padding: 10px;
+    top: 10px;
+  }
+
+}

@@ -1,0 +1,58 @@
+.nav-menu {
+  width: 20vw;
+  height: 100vh;
+  background: black;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: -20vw;
+  transition: left 0.7s cubic-bezier(.46,.06,.28,.99), box-shadow 0.7s;
+  transform: translateZ(0);
+  color: #707070;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  box-shadow: 0px 0px 0px;
+}
+
+.nav-menu.active {
+  left: 0vw;
+  box-shadow: 5px 5px 20px;
+}
+
+.nav-menu, .nav-menu .top, .nav-menu .bottom, .nav-options, .nav-options a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-menu .nav-options {
+  flex: 2;
+}
+
+.nav-options a {
+  flex: 1;
+  font-size: 1.3em;
+  text-decoration: none;
+}
+
+.nav-options a:visited, .nav-options a:link {
+  color: #707070;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .nav-menu {
+    width: 100vw;
+    left: -100vw;
+    z-index: 10;
+  }
+
+  .nav-options a {
+    font-size: 1.4em;
+  }
+
+  .nav-menu .nav-options {
+    flex: 2;
+  }
+
+}

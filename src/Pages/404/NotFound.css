@@ -1,0 +1,21 @@
+.notFound {
+  height: 73vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #707070;
+  font-size: 3em;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: white;
+  padding-bottom: 10vh;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .notFound {
+    height: 86vh;
+  }
+
+}

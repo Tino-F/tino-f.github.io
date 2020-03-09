@@ -1,0 +1,41 @@
+.titleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background: black;
+  z-index: 10;
+  position: fixed;
+  width: 100vw;
+}
+
+.title {
+  flex-grow: 1;
+  font-family: 'Yu Gothic', sans-serif;
+  transition: flex-grow 0.1s cubic-bezier(.46,.06,.28,.99);
+  text-shadow: 1px 1px 50px;
+  font-style: normal;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+  text-align: center;
+  transform: translateZ(0);
+}
+
+.title:hover {
+  flex-grow: 3;
+}
+
+.outer {
+  flex: 1.5;
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 6px;
+  }
+
+  .titleContainer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+}

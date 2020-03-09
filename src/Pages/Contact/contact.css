@@ -1,0 +1,229 @@
+.contactPage {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background: white;
+  overflow-y: hidden;
+}
+
+.contactPage h1 {
+  color: black;
+  font-family: sans-serif;
+  font-weight: 300;
+  flex: 1;
+  margin-top: 7vh;
+}
+
+.contactSpace {
+  height: 7vh;
+}
+
+.contactPage .shadow {
+  content: '';
+  height: 7px;
+  display: block;
+  left: 43.5%;
+  width: 13%;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 80%);
+  margin-top: 14px;
+}
+
+.contactPage .formInner h1 {
+  padding-top: 4vh;
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  height: 400vh;
+  transform: translateY(0vh);
+  transition: transform 0.35s cubic-bezier(.46,.06,.28,.99);
+}
+
+.contactForm, .sendingPage, .sentPage, .errorPage {
+  flex: 1;
+}
+
+.sending .contactContainer {
+  transform: translateY(-100vh);
+}
+
+.sent .contactContainer {
+  transform: translateY(-200vh);
+}
+
+.failed .contactContainer {
+  transform: translateY(-300vh);
+}
+
+.contactContainer .contactForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactContainer .contactForm input[name='firstName'],
+.contactContainer .contactForm input[name='lastName'],
+.contactContainer .contactForm input[type='email'] {
+  flex: 1;
+  height: 4vh;
+  border: 0;
+  border-bottom: 2px solid black;
+  color: black;
+  font-size: 1.35em;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.contactContainer .contactForm input[name='firstName']::placeholder,
+.contactContainer .contactForm input[name='lastName']::placeholder,
+.contactContainer .contactForm input[type='email']::placeholder {
+  color: #707070;
+}
+
+.contactContainer .contactForm textarea {
+  flex: 1;
+  height: 200px;
+  border: 0;
+  border-bottom: 2px solid black;
+  color: black;
+  font-size: 1.35em;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.contactContainer .contactForm textarea::placeholder {
+  color: #707070;
+}
+
+.contactContainer .contactForm input[type='submit'] {
+  background: #707070;
+  flex: 1;
+  width: 30%;
+  height: 51px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  color: white;
+  border-radius: 36px;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s, border 0.3s;
+}
+
+.contactContainer .contactForm input[type='submit']:hover {
+  background: black;
+  border: 1px solid white;
+  color: white;
+}
+
+.errorMessage {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #ff8080;
+  color: black;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  padding: 3px;
+  transition: transform 0.8s cubic-bezier(.46,.06,.28,.99);
+  transform: translateX(-120vw);
+}
+
+.errorMessage.active {
+  transform: translateX(0vw);
+}
+
+.sendingPage, .sentPage, .errorPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.sendingPage {
+  background: #ffff80;
+}
+
+.sendingText {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #707070;
+  font-size: 1.8em;
+  animation: fade 2s ease-in infinite;
+  position: absolute;
+  margin-top: 114px;
+}
+
+.sentPage {
+  background: #4dff4d;
+  color: #707070;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.3em;
+}
+
+.errorPage {
+  background: #ff8080;
+  color: #707070;
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.3em;
+  font-weight: 500;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .contactContainer .contactForm input[type='submit'] {
+    width: 60%;
+  }
+
+  .contactPage {
+    font-size: 0.75em;
+    text-align: center;
+  }
+
+  .contactSpace {
+    height: 5vh;
+  }
+
+  .nameContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nameContainer input {
+    width: 100% !important;
+    margin-bottom: 3vh;
+  }
+
+  .outerBoxes {
+    flex: 1 !important;
+  }
+
+  .contactContainer .contactForm input[name='firstName'],
+  .contactContainer .contactForm input[name='lastName'],
+  .contactContainer .contactForm input[type='email'] {
+    width: 10vw;
+  }
+
+  .contactContainer .contactForm textarea {
+    height: 160px;
+  }
+
+}
