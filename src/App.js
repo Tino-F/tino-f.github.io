@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Route,
-  Switch
-} from 'react-router-dom';
-import {
-  TransitionGroup,
-  CSSTransition
-} from 'react-transition-group';
+import { Route } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import Navigation from './Components/container/navigation/navigation';
 import Title from './Components/ui/title/title';
 import Footer from './Components/container/footer/footer';
@@ -14,24 +8,19 @@ import Home from './Pages/Home/home';
 import About from './Pages/About/about';
 import Portfolio from './Pages/Portfolio/portfolio';
 import Contact from './Pages/Contact/contact';
+import Blog from './Pages/Blog/blog';
+import NotFound from './Pages/404/NotFound';
 import './App.css';
 
 const routes = [
   { path: '/', name: 'HOME', Component: Home },
   { path: '/contact', name: 'CONTACT', Component: Contact },
   { path: '/about', name: 'ABOUT', Component: About },
-  { path: '/portfolio/:id?', name: 'PORTFOLIO', Component: Portfolio }
+  { path: '/portfolio/:id?', name: 'PORTFOLIO', Component: Portfolio },
+  { path: '/blog', name: 'BLOG', Component: Blog }
 ];
 
 export default class App extends Component {
-
-  constructor() {
-    super();
-
-    this.omittedLocations = ['/portfolio'];
-
-    this.omitLocations = this.omitLocations.bind( this );
-  }
 
   componentDidMount() {
 
@@ -40,37 +29,10 @@ export default class App extends Component {
 
   }
 
-  omitLocations( location ) {
-
-    let key = 'randomtext';
-
-    this.omittedLocations.forEach( url => {
-
-      let urlRegex = new RegExp( url + '(.*)' );
-
-      if ( key !== '' ) {
-
-        let result = urlRegex.exec( location.pathname );
-
-        if ( result ) {
-          if ( result[0] ) {
-            key = '';
-          } else {
-            key = location.key;
-          }
-        } else {
-          key = location.key;
-        }
-
-      }
-
-    });
-
-    return key;
-
-  }
-
   render() {
+
+    let pathList = routes.map( r => (r.path) );
+
     return(
       <div className='app'>
         <Title/>
@@ -92,7 +54,7 @@ export default class App extends Component {
                 )}
               </Route>
             )
-          } else {
+          } else if ( pathList.indexOf( path ) > -1 ) {
             return(
               <Route key={path} path={path}>
                 {({ match }) => (
@@ -107,6 +69,8 @@ export default class App extends Component {
                 )}
               </Route>
             )
+          } else {
+            return <Route component={NotFound}/>
           }
         })}
 
