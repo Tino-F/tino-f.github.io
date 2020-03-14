@@ -3,7 +3,6 @@ import { Canvas } from 'react-three-fiber';
 import Text from '../Components/ui/three/text';
 import HalvorsenAttractor from '../Components/ui/three/HalvorsenAttractor';
 import { useSpring, interpolate } from 'react-spring/three';
-import Glitch from '../Effects/glitch';
 
 export default function Name (props) {
 
@@ -21,7 +20,6 @@ export default function Name (props) {
 
   return(
     <Canvas onMouseMove={onMouseMove} pixelRatio={ window.devicePixelRatio } style={{ height: '100vh', width: '100vw' }}>
-      <Glitch/>
       <Text opacity={top.interpolate( t => (1-t*3) )} fontSize={150} position={mouse.interpolate( ( x, y ) => [ x*-0.5, (y*0.5)-1, 0 ] )} color='black'>
         Tino Fileccia
       </Text>

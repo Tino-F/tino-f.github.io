@@ -3,9 +3,16 @@ import './navigation.css';
 import Plus from '../../ui/logos/plus/plus';
 import Burger from '../../ui/burger/burger';
 import Minus from '../../ui/logos/minus/minus';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { scrollTo } from 'scroll-js';
 
-export default class Navigation extends Component {
+const toTopConfig = {
+  top: 0,
+  easing: 'ease-out',
+  duration: 700
+}
+
+class Navigation extends Component {
 
   constructor() {
 
@@ -15,8 +22,19 @@ export default class Navigation extends Component {
 
   }
 
-  disable = () => {
+  toNext = async e => {
+
     this.setState({ active: false });
+
+    if ( window.scrollY > 25 ) {
+      //animate scroll to top
+
+      e.preventDefault();
+      let linkTo = e.target.getAttribute('href');
+      await scrollTo( window, toTopConfig )
+      this.props.history.push( linkTo );
+
+    }
   }
 
   render() {
@@ -31,10 +49,10 @@ export default class Navigation extends Component {
             <Plus/>
           </div>
           <div className='nav-options'>
-            <Link to={'/'} onClick={this.disable} className='home-option'>HOME</Link>
-            <Link to={'/contact'} onClick={this.disable} className='contact-option'>CONTACT</Link>
-            <Link to={'/about'} onClick={this.disable} className='about-option'>ABOUT</Link>
-            <Link to={'/portfolio'} onClick={this.disable} className='portfolio-option'>PORTFOLIO</Link>
+            <Link to={'/'} onClick={this.toNext} className='home-option'>HOME</Link>
+            <Link to={'/contact'} onClick={this.toNext} className='contact-option'>CONTACT</Link>
+            <Link to={'/about'} onClick={this.toNext} className='about-option'>ABOUT</Link>
+            <Link to={'/portfolio'} onClick={this.toNext} className='portfolio-option'>PORTFOLIO</Link>
           </div>
           <div className='bottom' style={{ flex: 1 }}>
             <Minus/>
@@ -46,3 +64,5 @@ export default class Navigation extends Component {
   }
 
 }
+
+export default withRouter(Navigation)
