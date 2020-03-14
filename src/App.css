@@ -11,11 +11,13 @@ body {
 .page-enter-active {
   transform: translateX(0vw);
   transition: transform 800ms;
+  transition-delay: 100ms;
 }
 
 .page-exit {
   transform: translateX(0vw);
   transition: transform 800ms;
+  transition-delay: 100ms;
   position: absolute;
   top: 0;
 }
@@ -23,6 +25,7 @@ body {
 .page-exit-active {
   transform: translateX(-100vw);
   transition: transform 800ms;
+  transition-delay: 100ms;
 }
 
 .page-enter #carousel .leftArrow,

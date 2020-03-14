@@ -45,7 +45,7 @@ export default class App extends Component {
                 {({ match }) => (
                   <CSSTransition
                     in={match != null}
-                    timeout={800}
+                    timeout={900}
                     classNames="page"
                     unmountOnExit
                   >
