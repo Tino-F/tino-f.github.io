@@ -10,7 +10,7 @@
 .title {
   flex-grow: 1;
   font-family: 'Yu Gothic', sans-serif;
-  transition: flex-grow 0.1s cubic-bezier(.46,.06,.28,.99);
+  transition: flex-grow 0.3s cubic-bezier(.46,.06,.28,.99);
   text-shadow: 1px 1px 50px;
   font-style: normal;
   font-size: 1em;
@@ -21,7 +21,7 @@
 }
 
 .title:hover {
-  flex-grow: 3;
+  flex-grow: 2;
 }
 
 .outer {

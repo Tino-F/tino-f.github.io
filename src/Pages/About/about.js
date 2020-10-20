@@ -26,7 +26,7 @@ export default class About extends Component {
 
           <h1>ABOUT <GlitchEffect style={{display: 'inherit'}}>ME</GlitchEffect></h1>
 
-          <p>Nashville's rising talent</p>
+          <p>Full Stack Web Development with an emphasis on R&D</p>
 
         </div>
 
@@ -35,13 +35,18 @@ export default class About extends Component {
           <div className='outerBoxes'></div>
 
           <div className='inner'>
-            Hello, <br/><br/>
+            Hi, <br/><br/>
+            I am an interactive full stack developer with tools such as node.js, python, SQL, react, react-native, and more under my belt.
+            Starting from my teenage years, I have spent a very long time working to advance my skill from the basic HTML/CSS.
+            I've taught myself about machine learning algorithms, 3D programming techniques, cyber security, and much more.
+            These skills have aided me throughout my career in various ways; allowing me to discover security vulnerabilities and give me a deeper understanding of my current job duties.
+            Not to mention being able to build advanced websites and apps for my clients.
 
-            If you really want to learn about me, I would highly recommend looking through my <Link to='/portfolio'>portfolio</Link> because my work speaks for itself. That is the primary reason I built this website with as much interactivity that it has. By the way, have you tried looking at the <Link to='/portfolio'>portfolio</Link> on your phone? I added a very special feture for mobile users (it won't work in an emulator due to the lack of hardware).
 
-            <br/><br/>
-
-            Anyway, I am an interactive/responsive web & app developer who pushes existing technology to the <b>very edge</b>. In my free time, I like to experiment with <a href='https://github.com/jeromeetienne/AR.js/blob/master/README.md' target='_blank' rel='noopener noreferrer'>AR.js</a>, <a href='https://threejs.org/' target='_blank' rel='noopener noreferrer'>three.js</a>, <a href='https://www.tensorflow.org/guide/keras' target='_blank' rel='noopener noreferrer'>TensorFlow/Keras</a>, and more technologies that can bring stunning visuals and unique user experiences. Eventually I plan on documenting the discoveries that I find on my <Link to='/blog'>blog</Link> so other people can take them even further and implement them in their own way. In the realm of specifically web development, I am an SCSS/CSS expert and feel extremely comfortable working with Javascript. I started developing websites all the way back in high school and have never stopped. I began by making basic HTML/CSS websites with very little Javascript, to writing full stack NodeJS/MongoDB applications before I graduated. Now I am freelancing under <a href='https://tessera.works' target='_blank' rel='noopener noreferrer'>TesseraWorks</a> as the co-owner and primary software engineer. At <a href='https://tessera.works' target='_blank' rel='noopener noreferrer'>TesseraWorks</a> I have played large roles in developing custom wordpress themes/plugins, react projects, and even private IOS apps using <a href='https://facebook.github.io/react-native/' target='_blank' rel='noopener noreferrer'>react native</a>. If you want any web or app work done, you can reach us <a href='https://tessera.works/#contact' target='_blank' rel='noopener noreferrer'>here.</a> If you would like to know more about me personally, head over to my <Link to='/contact'>contact</Link> page and send me a message!
+            Teaching myself about these technologies has allowed me to learn at a much faster pace that some traditional methods
+            I enjoy learning about new technology, so it has become routine for me to frequently learn about new concepts & techniques to implement into my code.
+            However, you may not have seen much activity from my codepen or github profiles recently, and that's because I am working tirelessly to build an augmented reality startup called "Eternity".
+            I can't provide too much details about the services that it will provide just yet, but I can say that the core services of this company will be based on augmented reality experiences.
 
             <div className='signature'>
               Tino Fileccia
